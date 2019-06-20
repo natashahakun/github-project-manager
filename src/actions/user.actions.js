@@ -1,3 +1,4 @@
+import { getRepos } from './repos.actions';
 import { setError, setLoading } from './ui.actions';
 
 export const GET_USER_REQUEST = 'GET_USER_REQUEST';
@@ -29,6 +30,7 @@ export const getUser = apiKey => async dispatch => {
             } 
         });
         dispatch(setLoading(false));
+        dispatch(getRepos());
 
     } catch(error) {
         dispatch({
