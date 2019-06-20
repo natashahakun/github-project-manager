@@ -1,5 +1,6 @@
 import { getRepos } from './repos.actions';
 import { setError, setLoading } from './ui.actions';
+import { githubApiService } from '../services/githubApiService';
 
 export const GET_USER_REQUEST = 'GET_USER_REQUEST';
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
@@ -10,17 +11,7 @@ export const getUser = apiKey => async dispatch => {
     dispatch(setLoading(true));
 
     try {
-        const url = 'https://api.github.com/user';
-        const headers = new Headers();
-        headers.append('Authorization', `token ${apiKey}`)
-        const response = await fetch(url, {
-            headers: headers
-        });
-
-        const body = await response.json();
-        if (response.status !== 200) {
-            throw new Error(body.message)
-        }
+        const body = await githubApiService('user', apiKey);
 
         dispatch({
 			type: GET_USER_SUCCESS, 

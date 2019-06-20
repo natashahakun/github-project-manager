@@ -1,4 +1,5 @@
 import { setError, setLoading } from './ui.actions';
+import { githubApiService } from '../services/githubApiService';
 
 export const GET_REPOS_REQUEST = 'GET_REPOS_REQUEST';
 export const GET_REPOS_SUCCESS = 'GET_REPOS_SUCCESS';
@@ -11,17 +12,7 @@ export const getRepos = () => async (dispatch, getState) => {
     dispatch(setLoading(true));
 
     try {
-        const url = `https://api.github.com/users/${user.githubUsername}/repos`;
-        const headers = new Headers();
-        headers.append('Authorization', `token ${user.apiKey}`)
-        const response = await fetch(url, {
-            headers: headers
-        });
-
-        const body = await response.json();
-        if (response.status !== 200) {
-            throw new Error(body.message)
-        }
+        const body = await githubApiService(`users/${user.githubUsername}/repos`, user.apiKey);
 
         dispatch({
             type: GET_REPOS_SUCCESS,
