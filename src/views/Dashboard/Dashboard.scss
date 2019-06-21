@@ -1,3 +1,5 @@
+@import '../../styles/animations';
+
 .dashboard {
     display: flex;
     box-sizing: border-box;
@@ -9,6 +11,10 @@
 
 .dashboard__repos-button {
     margin-bottom: 10px;
+    animation-name: fadeIn;
+    animation-duration: 0.3;
+    animation-fill-mode: forwards;
+    animation-timing-function: 'cubic-bezier(0.550, 0.085, 0.680, 0.530)';
 
     &:last-of-type {
         margin-bottom: 0;

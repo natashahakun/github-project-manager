@@ -10,9 +10,9 @@ const Dashboard = ({ getIssues, issues, repos }) =>
     <section className="dashboard">
         <div className="dashboard__repos">
             <Heading>Repositories</Heading>
-            { repos.map(repo => {
+            { repos.map((repo, index) => {
                 return (
-                    <div className="dashboard__repos-button" key={ repo.id }>
+                    <div className="dashboard__repos-button" style={{ animationDuration: `${index * 0.25}s` }} key={ repo.id }>
                         <Button
                             buttonType="secondary"
                             type="button"
