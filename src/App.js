@@ -4,17 +4,14 @@ import { connect } from 'react-redux';
 import { Login } from './components';
 import Dashboard from './views/Dashboard/Dashboard';
 
-const App = ({ errorMessage, isLoading, user}) => {
-    return (
-        <div>
-            { errorMessage && <p>{ errorMessage }</p>}
-            { isLoading && <p>Loading...</p> }
+const App = ({ errorMessage, isLoading, user}) =>
+    <div>
+        { errorMessage && <p>{ errorMessage }</p>}
+        { isLoading && <p>Loading...</p> }
 
-            { user ? <Dashboard /> : <Login /> }
-        </div>
-    );
-}
-
+        { user ? <Dashboard /> : <Login /> }
+    </div>
+    
 App.defaultProps = {
     errorMessage: '',
     user: ''
