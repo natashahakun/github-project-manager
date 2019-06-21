@@ -9,9 +9,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...state
             ]
         case type.GET_REPOS_SUCCESS:
-            return [
-                ...action.payload
-            ]
+            return action.payload.map(({ id, name }) => ({ id, name }))
         case type.GET_REPOS_FAILURE:
             return [
                 ...state,

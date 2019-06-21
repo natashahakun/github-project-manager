@@ -72,8 +72,7 @@ Dashboard.propTypes = {
     hasIssues: PropTypes.bool,
     repos: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
+        name: PropTypes.string.isRequired
     }))
 };
 

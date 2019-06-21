@@ -16,7 +16,7 @@ export const getRepos = () => async (dispatch, getState) => {
 
         dispatch({
             type: GET_REPOS_SUCCESS,
-            payload: body.map(({ id, name, url }) => ({ id, name, url }))
+            payload: body
         });
         dispatch(setLoading(false));
 
