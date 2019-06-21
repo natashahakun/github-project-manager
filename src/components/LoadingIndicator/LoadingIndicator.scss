@@ -19,8 +19,8 @@
         border-bottom: 3px solid $blue;
         border-radius: 50%;
         animation-name: loadingRing;
-        animation-duration: $durationLoadingIndicator;
-        animation-timing-function: linear;
+        animation-duration: $duration-loading-indicator;
+        animation-timing-function: $ease-in-out-circ;
         animation-iteration-count: infinite;
     }
 

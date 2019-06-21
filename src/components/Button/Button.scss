@@ -7,13 +7,13 @@
     padding-right: 40px;
     padding-bottom: 0;
     padding-left: 40px;
-    font-size: 16px;
+    font-size: $font-normal;
     border: none;
     border-radius: 6px;
     transform: translate3d(0, 0, 0);
     transition-property: all;
-    transition-duration: $durationQuick;
-    transition-timing-function: ease-in-out;
+    transition-duration: $duration-quick;
+    transition-timing-function: $ease-out-quad;
     cursor: pointer;
 
     &--primary {
@@ -57,7 +57,7 @@
 
         &:hover,
         &:focus {
-            transform: scale(1.1);
+            transform: scale(1.02);
             box-shadow: $box-shadow-light;
         }
 

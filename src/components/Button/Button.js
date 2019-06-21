@@ -15,7 +15,7 @@ const Button = ({ accessibleText, buttonType, children, selected, type, ...props
         {...props}
     >
         { buttonType === 'icon' && <span className='accessible-text'>{ accessibleText }</span> }
-        {children}
+        { children }
     </button>
 
 Button.defaultProps = {
