@@ -1,35 +1,45 @@
+@import '../../styles/mixins';
 @import '../../styles/variables';
 
 .login {
     width: 100vw;
     height: 100vh;
-    //fix
-    padding-top: 25%;
-    text-align: center;
+
+    &__body {
+        padding-top: 25%;
+        padding-right: 15px;
+        padding-left: 15px;
+        text-align: center;
+    }
+
+    &__text {
+        margin-bottom: 25px;
+    }
+
+    &__label {
+        margin-right: 20px;
+        color: $blue;
+        font-weight: $semi-bold;
+    }
+
+    &__action {
+        display: block;
+        margin-top: 35px;
+        margin-right: 0;
+        margin-bottom: 50px;
+        margin-left: 0;
+    }
 
     @media #{$mq-min-tablet} {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 50%;
-        min-width: 500px;
-        max-width: 650px;
-        height: 300px;
-        padding-top: 0;
-        border-radius: 6px;
-        box-shadow: $box-shadow-strong;
-        transform: translate(-50%, -50%);
+        @include flex-center;
+
+        &__body {
+            width: 500px;
+            height: auto;
+            padding-top: 30px;
+            padding-bottom: 40px;
+            border-radius: 6px;
+            box-shadow: $box-shadow-strong;
+        }
     }
-}
-
-.login__label {
-    color: $blue;
-    font-weight: $semi-bold;
-}
-
-.login__action {
-    display: block;
-    margin-top: 30px;
-    margin-right: 0;
-    margin-left: 0;
 }
