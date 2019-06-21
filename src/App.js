@@ -17,7 +17,9 @@ class App extends Component {
     }
 
     render() {
-        const { checkedExisting, errorMessage, isLoading, user } = this.props;
+        const { errorMessage, isLoading, user } = this.props;
+        const { checkedExisting } = this.state;
+
         return (
             <div>
                 { errorMessage && <Notification>{ errorMessage }</Notification>}

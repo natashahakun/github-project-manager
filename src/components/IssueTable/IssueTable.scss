@@ -31,7 +31,7 @@
 
     &__data-priority {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
     }
 
     @media #{$mq-min-tablet} {
