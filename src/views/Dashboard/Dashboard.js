@@ -1,34 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
 import { getIssues } from '../../actions/issues.actions';
 import { Button, Heading, IssueTable } from '../../components/index';
 import './Dashboard.scss';
 
-const Dashboard = ({ getIssues, issues, repos }) =>
-    <section className="dashboard">
-        <div className="dashboard__repos">
-            <Heading>Repositories</Heading>
-            { repos.map((repo, index) => {
-                return (
-                    <div className="dashboard__repos-button" style={{ animationDuration: `${index * 0.25}s` }} key={ repo.id }>
-                        <Button
-                            buttonType="secondary"
-                            type="button"
-                            onClick={() => getIssues(repo.name)}
-                        >
-                            { repo.name }
-                        </Button>
-                    </div>
-                )
-            })}
-        </div>
-        {/* add reminder to click on repo && add 'no Issues' warning */}
-        <div className="dashboard__issues">
-            { issues.length > 0 && <IssueTable issues={issues} /> }
-        </div>
-    </section>
+const Dashboard = ({ getIssues, issues, repos }) => {
+    const [selectedRepo, setSelectedRepo] = useState(null);
+
+    return (
+        <section className={classNames("dashboard",
+            {
+                "dashboard--center": !selectedRepo,
+                "dashboard--left": selectedRepo
+            }
+        )}>
+            <div className="dashboard__repos">
+                <Heading>Repositories</Heading>
+                { repos.map((repo, index) => {
+                    return (
+                        <div className="dashboard__repos-button" style={{ animationDuration: `${index * 0.25}s` }} key={ repo.id }>
+                            <Button
+                                buttonType="secondary"
+                                selected={selectedRepo === repo.id}
+                                type="button"
+                                onClick={() => {
+                                    setSelectedRepo(repo.id);
+                                    getIssues(repo.name);
+                                }}
+                            >
+                                { repo.name }
+                            </Button>
+                        </div>
+                    )
+                })}
+            </div>
+            <div className="dashboard__issues">
+                { selectedRepo && issues.length === 0 && <p>No issues found</p> }
+                { issues.length > 0 &&
+                    <>
+                        <h2>Issues</h2>
+                        <IssueTable issues={issues} />
+                    </>
+                }
+            </div>
+        </section>
+    )
+}
 
 
 Dashboard.propTypes = {

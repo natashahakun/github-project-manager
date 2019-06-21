@@ -1,22 +1,39 @@
 @import '../../styles/animations';
+@import '../../styles/variables';
 
 .dashboard {
     display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     padding-top: 40px;
     padding-right: 30px;
     padding-bottom: 40px;
     padding-left: 30px;
-}
 
-.dashboard__repos-button {
-    margin-bottom: 10px;
-    animation-name: fadeIn;
-    animation-duration: 0.3;
-    animation-fill-mode: forwards;
-    animation-timing-function: 'cubic-bezier(0.550, 0.085, 0.680, 0.530)';
+    &__repos-button {
+        margin-bottom: 10px;
+        animation-name: fadeIn;
+        animation-fill-mode: forwards;
+        animation-timing-function: 'cubic-bezier(0.550, 0.085, 0.680, 0.530)';
+    
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
 
-    &:last-of-type {
-        margin-bottom: 0;
+    @media #{$mq-min-tablet} {
+        flex-direction: row;
+
+        &--center {
+            transform: translateX($centered-column);
+        }
+    
+        &--left {
+            animation-name: slideLeft;
+            animation-duration: 0.6s;
+            animation-fill-mode: forwards;
+            animation-timing-function: 'cubic-bezier(0.390, 0.575, 0.565, 1.000)'
+        }
     }
 }
+
