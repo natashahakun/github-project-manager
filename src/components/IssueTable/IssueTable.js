@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './IssueTable.scss';
 
 class IssueTable extends Component {
@@ -23,8 +24,8 @@ class IssueTable extends Component {
                                 { issue.assignee ? <img className="table__image" src={ issue.assignee.avatar_url } alt="avatar" /> : 'No assignee' }
                             </td>
                             <td>{ issue.title }</td>
-                            <td>{ issue.created_at }</td>
-                            <td>{ issue.updated_at }</td>
+                            <td>{ moment(issue.created_at).format('MM/DD/YYYY') }</td>
+                            <td>{ moment(issue.updated_at).fromNow() }</td>
                         </tr> 
                     )}
                 </tbody>
