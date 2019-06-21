@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders correctly 1`] = `
+<div
+  className="login"
+>
+  <div
+    className="login__body"
+  >
+    <h1
+      className="heading"
+    >
+      Login
+    </h1>
+    <p
+      className="login__text"
+    >
+      Enter GitHub token to access your GitHub Project Manager
+    </p>
+    <form
+      className="login__form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="input-wrapper"
+      >
+        <label
+          className="input-wrapper__label"
+          htmlFor="apiKey"
+        >
+          GitHub Token
+        </label>
+        <input
+          className="input-wrapper__input"
+          id="apiKey"
+          name="apiKey"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="login__action"
+      >
+        <button
+          className="button button--primary"
+          type="submit"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+    <div
+      className="link-wrapper"
+    >
+      <a
+        href="https://help.github.com/en/enterprise/2.17/user/articles/creating-a-personal-access-token-for-the-command-line"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Find out how to obtain a GitHub personal access token
+      </a>
+    </div>
+  </div>
+</div>
+`;
