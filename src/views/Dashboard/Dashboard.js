@@ -38,10 +38,10 @@ const Dashboard = ({ getIssues, issues, repos }) => {
                 })}
             </div>
             <div className="dashboard__issues">
-                { selectedRepo && issues.length === 0 && <p>No issues found</p> }
+                { selectedRepo && issues.length === 0 && <h2 className="dashboard__issues-heading">No issues found</h2> }
                 { issues.length > 0 &&
                     <>
-                        <h2>Issues</h2>
+                        <h2 className="dashboard__issues-heading">Issues</h2>
                         <IssueTable issues={issues} />
                     </>
                 }

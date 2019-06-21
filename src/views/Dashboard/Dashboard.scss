@@ -1,6 +1,8 @@
 @import '../../styles/animations';
 @import '../../styles/variables';
 
+$slideLeftDuration: 0.6s;
+
 .dashboard {
     display: flex;
     flex-direction: column;
@@ -21,18 +23,40 @@
         }
     }
 
+    &__issues-heading {
+        font-weight: $narrow;
+    }
+
     @media #{$mq-min-tablet} {
         flex-direction: row;
 
         &--center {
             transform: translateX($centered-column);
+
+            .dashboard__issues {
+                opacity: 0;
+            }
         }
     
         &--left {
             animation-name: slideLeft;
-            animation-duration: 0.6s;
+            animation-duration: $slideLeftDuration;
             animation-fill-mode: forwards;
-            animation-timing-function: 'cubic-bezier(0.390, 0.575, 0.565, 1.000)'
+            animation-timing-function: 'cubic-bezier(0.390, 0.575, 0.565, 1.000)';
+
+            .dashboard__issues {
+                padding-top: 50px;
+                padding-left: 30px;
+                opacity: 0;
+                animation-name: fadeIn;
+                animation-duration: 0.4s;
+                animation-delay: $slideLeftDuration;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        &__issues {
+            flex: 1;
         }
     }
 }
