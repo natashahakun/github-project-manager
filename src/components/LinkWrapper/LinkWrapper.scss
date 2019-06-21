@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+
+.link-wrapper {
+    a {
+        color: $blue;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: $blue-dark;
+            text-decoration: underline;
+        }
+    }
+}
