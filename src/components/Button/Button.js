@@ -8,6 +8,7 @@ const Button = ({ buttonType, children, selected, type, ...props }) =>
         className={classNames('button', {
             'button--primary': buttonType === 'primary',
             'button--secondary': buttonType === 'secondary',
+            'button--icon': buttonType === 'icon',
             'button--selected': selected
         })}
         type={type}
@@ -23,7 +24,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-    buttonType: PropTypes.oneOf(['primary', 'secondary']),
+    buttonType: PropTypes.oneOf(['primary', 'secondary', 'icon']),
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.element),
         PropTypes.element,
