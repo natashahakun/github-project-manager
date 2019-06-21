@@ -38,6 +38,14 @@ export default (state = INITIAL_STATE, action) => {
                 }
                 return issue;
             });
+        case type.GET_ISSUES_PRIORITIES:
+            const { issuesPriorities } = action.payload;
+            return state.map(issue => {
+                if (issuesPriorities[issue.id]) {
+                    return { ...issue, priority: issuesPriorities[issue.id] };
+                }
+                return issue;
+            });
         default:
             return state;
     }
