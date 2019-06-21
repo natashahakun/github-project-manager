@@ -7,6 +7,16 @@
     }
 }
 
+@keyframes loadingRing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes slideDown {
     0% {
         transform: translateY(-100px);

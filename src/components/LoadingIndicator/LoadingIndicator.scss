@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+@import '../../styles/mixins';
+
+.loading-indicator {
+    z-index: $overlay-z-index;
+    @include fixed-full-screen;
+
+    &__spinner-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    &__spinner {
+        height: 120px;
+        width: 120px;
+        border-top: 3px solid $blue;
+        border-right: 3px solid $blue;
+        border-bottom: 3px solid $blue;
+        border-radius: 50%;
+        animation: loadingRing 1.2s linear infinite;
+    }
+
+    &__overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 0.5;
+        @include fixed-full-screen;
+    }
+}
