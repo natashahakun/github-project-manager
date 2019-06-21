@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/user.actions';
 
-class LoginClass extends Component {
+class Login extends Component {
     state = { apiKey: '' }
 
     handleSubmit = event => {
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
     getUser
 }, dispatch);
 
-export const Login = connect(null, mapDispatchToProps)(LoginClass);
+export default connect(null, mapDispatchToProps)(Login);

@@ -1,2 +1,3 @@
-export * from './Input/Input';
-export * from './Login/Login';
+export { default as Button } from './Button/Button';
+export { default as Input } from './Input/Input';
+export { default as Login } from './Login/Login';
