@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { getIssues } from '../../actions/issues.actions';
-import { Button, Heading, IssueTable, NativeSelect } from '../../components/index';
+import { repoHasIssues } from '../../selectors';
+import { Button, Heading, IssuesTable, NativeSelect } from '../../components/index';
 import './Dashboard.scss';
 
-const Dashboard = ({ getIssues, issues, repos }) => {
+const Dashboard = ({ getIssues, hasIssues, repos }) => {
     const [selectedRepo, setSelectedRepo] = useState(null);
 
     return (
@@ -53,11 +54,11 @@ const Dashboard = ({ getIssues, issues, repos }) => {
                 </div>
             </div>
             <div className='dashboard__issues'>
-                { selectedRepo && issues.length === 0 && <h2 className='dashboard__issues-heading'>No issues found</h2> }
-                { issues.length > 0 &&
+                { selectedRepo && !hasIssues && <h2 className='dashboard__issues-heading'>No issues found</h2> }
+                { hasIssues &&
                     <>
                         <h2 className='dashboard__issues-heading'>Issues</h2>
-                        <IssueTable issues={issues} />
+                        <IssuesTable />
                     </>
                 }
             </div>
@@ -68,7 +69,7 @@ const Dashboard = ({ getIssues, issues, repos }) => {
 
 Dashboard.propTypes = {
     getIssues: PropTypes.func.isRequired,
-    issues: PropTypes.arrayOf(PropTypes.shape({})),
+    hasIssues: PropTypes.bool,
     repos: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
@@ -76,8 +77,8 @@ Dashboard.propTypes = {
     }))
 };
 
-const mapStateToProps = ({ repos, issues }) => ({
-    issues,
+const mapStateToProps = ({ repos, ...state }) => ({
+    hasIssues: repoHasIssues(state),
     repos
 });
 
