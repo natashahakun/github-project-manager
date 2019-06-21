@@ -35,8 +35,21 @@ class IssueTable extends Component {
                             <td className='table__data-standard table__data-created'>{ moment(issue.created_at).format('MM/DD/YYYY') }</td>
                             <td className='table__data-standard table__data-updated'>{ moment(issue.updated_at).fromNow() }</td>
                             <td className='table__data-standard table__data-priority'>
-                                <Button buttonType='icon' disabled={issue.priority === 1} onClick={() => increasePriority(issue.id)}>+</Button>
-                                <Button buttonType='icon' disabled={issue.priority === issues.length} onClick={() => decreasePriority(issue.id)}>-</Button>
+                                <Button
+                                    accessibleText='Increase priority'
+                                    buttonType='icon' disabled={issue.priority === 1}
+                                    onClick={() => increasePriority(issue.id)}
+                                >
+                                    +
+                                </Button>
+                                <Button
+                                    accessibleText='Decrease priority'
+                                    buttonType='icon'
+                                    disabled={issue.priority === issues.length}
+                                    onClick={() => decreasePriority(issue.id)}
+                                >
+                                    -
+                                </Button>
                             </td>
                         </tr> 
                     )}

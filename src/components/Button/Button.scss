@@ -47,7 +47,9 @@
         width: 30px;
         padding-right: 0px;
         padding-left: 0px;
-        border: 1px solid $blue;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $blue;
         font-weight: $semi-bold;
         color: $blue;
         border-radius: 50%;
@@ -57,6 +59,12 @@
         &:focus {
             transform: scale(1.1);
             box-shadow: $box-shadow-light;
+        }
+
+        &:disabled {
+            border-color: $gray;
+            color: $gray;
+            pointer-events: none;
         }
     }
 
