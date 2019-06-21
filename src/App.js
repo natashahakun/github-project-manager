@@ -41,13 +41,13 @@ App.defaultProps = {
 App.propTypes = {
     errorMessage: PropTypes.string,
     getUser: PropTypes.func,
-    loading: PropTypes.bool.isRequired,
+    isLoading: PropTypes.bool.isRequired,
     user: PropTypes.string
 };
 
 const mapStateToProps = ({ ui, user }) => ({
     errorMessage: ui.error,
-    loading: ui.loading,
+    isLoading: ui.loading,
     user: user.githubUsername
 });
 
