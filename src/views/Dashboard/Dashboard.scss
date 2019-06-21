@@ -1,6 +1,9 @@
 @import '../../styles/animations';
 @import '../../styles/variables';
 
+$issuesPaddingTop: 50px;
+$issuesPaddingBottom: 20px;
+
 .dashboard {
     display: flex;
     flex-direction: column;
@@ -10,7 +13,7 @@
     padding-bottom: 40px;
     padding-left: 30px;
 
-    &__repos-wrapper {
+    &__repos {
         display: none;
     }
 
@@ -31,6 +34,24 @@
 
     @media #{$mq-min-tablet} {
         flex-direction: row;
+        height: 100vh;
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        overflow: hidden;
+
+        &__repos-wrapper {
+            height: 100vh;
+            width: calc(50% + 90px);
+            padding-right: 30px;
+            padding-left: 30px;
+            overflow-y: auto;
+        }
+
+        &__repos {
+            padding-bottom: 40px;
+        }
 
         &--center {
             transform: translateX($centered-column);
@@ -46,10 +67,18 @@
             animation-fill-mode: forwards;
             animation-timing-function: $ease-in-quad;
 
+            .dashboard__repos-wrapper {
+                width: auto;
+            }
+
             .dashboard__issues {
-                padding-top: 50px;
-                padding-left: 30px;
+                height: calc(100vh - #{$issuesPaddingTop} - #{$issuesPaddingBottom});
+                padding-top: $issuesPaddingTop;
+                padding-right: 5px;
+                padding-bottom: $issuesPaddingBottom;
+                padding-left: 5px;
                 opacity: 0;
+                overflow-y: auto;
                 animation-name: fadeIn;
                 animation-duration: $duration-average;
                 animation-delay: $duration-long;
@@ -61,7 +90,7 @@
             display: none;
         }
 
-        &__repos-wrapper {
+        &__repos {
             display: block;
         }
 

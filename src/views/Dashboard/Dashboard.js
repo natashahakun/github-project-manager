@@ -18,7 +18,7 @@ const Dashboard = ({ getIssues, hasIssues, repos }) => {
                 'dashboard--left': selectedRepo
             }
         )}>
-            <div className='dashboard__repos'>
+            <div className='dashboard__repos-wrapper'>
                 <Heading>Repositories</Heading>
                 <div className='dashboard__select-wrapper'>
                     <NativeSelect
@@ -33,7 +33,7 @@ const Dashboard = ({ getIssues, hasIssues, repos }) => {
                     />
                 </div>
 
-                <div className='dashboard__repos-wrapper'>
+                <div className='dashboard__repos'>
                     { repos.map((repo, index) => {
                         return (
                             <div className='dashboard__repos-button' style={{ animationDuration: `${index * 0.25}s` }} key={repo.id}>
