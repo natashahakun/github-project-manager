@@ -6,8 +6,8 @@ class IssueTable extends Component {
         const { issues } = this.props;
 
         return (
-            <table>
-                <thead>
+            <table className="table">
+                <thead className="table__head">
                     <tr>
                         <th>Assignee</th>
                         <th>Title</th>

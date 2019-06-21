@@ -1,5 +1,13 @@
+.table {
+    width: 100%;
+}
+
+.table__head {
+    text-align: left;
+}
+
 .table__row {
-    height: 100px;
+    min-height: 100px;
     box-sizing: border-box;
     padding-top: 20px;
 }
@@ -11,3 +19,4 @@
 .table__image {
     height: 100%;
 }
+
