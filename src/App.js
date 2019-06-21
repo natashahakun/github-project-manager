@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { LoadingIndicator, Login, Notification } from './components';
 import Dashboard from './views/Dashboard/Dashboard';
+import { getUser } from './actions/user.actions';
+import { apiKeyService } from './services';
 
-const App = ({ errorMessage, isLoading, user}) =>
-    <div>
-        { errorMessage && <Notification>{ errorMessage }</Notification>}
-        { isLoading && <LoadingIndicator /> }
+class App extends Component {
+    state = { checkedExisting: false }
 
-        { user ? <Dashboard /> : <Login /> }
-    </div>
+    async componentDidMount() {
+        const existingApiKey = apiKeyService.get();
+        existingApiKey && await this.props.getUser(existingApiKey);
+        this.setState({ checkedExisting: true });
+    }
+
+    render() {
+        const { checkedExisting, errorMessage, isLoading, user } = this.props;
+        return (
+            <div>
+                { errorMessage && <Notification>{ errorMessage }</Notification>}
+                { isLoading && <LoadingIndicator /> }
+
+                { user && <Dashboard /> }
+                { !user && checkedExisting && <Login /> }
+            </div>
+        )
+    }
+}
+
     
 App.defaultProps = {
     errorMessage: '',
@@ -19,6 +38,7 @@ App.defaultProps = {
 
 App.propTypes = {
     errorMessage: PropTypes.string,
+    getUser: PropTypes.func,
     loading: PropTypes.bool.isRequired,
     user: PropTypes.string
 };
@@ -29,4 +49,8 @@ const mapStateToProps = ({ ui, user }) => ({
     user: user.githubUsername
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getUser
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

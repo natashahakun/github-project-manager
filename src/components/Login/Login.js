@@ -4,16 +4,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/user.actions';
 import { Button, Heading } from '../index';
-import { apiKeyService } from '../../services';
 import './Login.scss';
 
 class Login extends Component {
     state = { apiKey: '' }
-
-    componentDidMount() {
-        const existingApiKey = apiKeyService.get();
-        existingApiKey && this.props.getUser(existingApiKey);
-    }
 
     handleSubmit = event => {
         event.preventDefault();
