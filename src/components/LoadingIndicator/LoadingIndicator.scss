@@ -7,10 +7,8 @@
     @include fixed-full-screen;
 
     &__spinner-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         height: 100%;
+        @include flex-center;
     }
 
     &__spinner {
