@@ -50,15 +50,16 @@
         border-width: 1px;
         border-style: solid;
         border-color: $blue;
-        font-weight: $semi-bold;
-        color: $blue;
         border-radius: 50%;
+        color: $blue;
+        background-color: $white;
+        font-weight: $semi-bold;
         @include flex-center;
 
         &:hover,
         &:focus {
-            transform: scale(1.02);
             box-shadow: $box-shadow-light;
+            transform: scale(1.02);
         }
 
         &:disabled {
@@ -69,7 +70,9 @@
     }
 
     &--selected {
-        border: 2px solid $blue;
+        border-width: 2px;
+        border-style: solid;
+        border-color: $blue;
         box-shadow: $box-shadow-strong;
     }
 }
