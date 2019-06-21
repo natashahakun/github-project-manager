@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { getIssues } from '../../actions/issues.actions';
-import { Button, Heading, IssueTable } from '../../components/index';
+import { Button, Heading, IssueTable, NativeSelect } from '../../components/index';
 import './Dashboard.scss';
 
 const Dashboard = ({ getIssues, issues, repos }) => {
@@ -19,23 +19,38 @@ const Dashboard = ({ getIssues, issues, repos }) => {
         )}>
             <div className='dashboard__repos'>
                 <Heading>Repositories</Heading>
-                { repos.map((repo, index) => {
-                    return (
-                        <div className='dashboard__repos-button' style={{ animationDuration: `${index * 0.25}s` }} key={ repo.id }>
-                            <Button
-                                buttonType='secondary'
-                                selected={selectedRepo === repo.id}
-                                type='button'
-                                onClick={() => {
-                                    setSelectedRepo(repo.id);
-                                    getIssues(repo.name);
-                                }}
-                            >
-                                { repo.name }
-                            </Button>
-                        </div>
-                    )
-                })}
+                <div className='dashboard__select-wrapper'>
+                    <NativeSelect
+                        label="repos"
+                        options={repos}
+                        value={selectedRepo || 0}
+                        handleOnChange={event => {
+                            const repoId = parseInt(event.target.value)
+                            setSelectedRepo(repoId);
+                            getIssues(repos.find(repo => repo.id === repoId).name);
+                        }}
+                    />
+                </div>
+
+                <div className='dashboard__repos-wrapper'>
+                    { repos.map((repo, index) => {
+                        return (
+                            <div className='dashboard__repos-button' style={{ animationDuration: `${index * 0.25}s` }} key={repo.id}>
+                                <Button
+                                    buttonType='secondary'
+                                    selected={selectedRepo === repo.id}
+                                    type='button'
+                                    onClick={() => {
+                                        setSelectedRepo(repo.id);
+                                        getIssues(repo.name);
+                                    }}
+                                >
+                                    { repo.name }
+                                </Button>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             <div className='dashboard__issues'>
                 { selectedRepo && issues.length === 0 && <h2 className='dashboard__issues-heading'>No issues found</h2> }

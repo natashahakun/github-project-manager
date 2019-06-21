@@ -10,6 +10,10 @@
     padding-bottom: 40px;
     padding-left: 30px;
 
+    &__repos-wrapper {
+        display: none;
+    }
+
     &__repos-button {
         margin-bottom: 10px;
         animation-name: fadeIn;
@@ -51,6 +55,14 @@
                 animation-delay: $durationLong;
                 animation-fill-mode: forwards;
             }
+        }
+
+        &__select-wrapper {
+            display: none;
+        }
+
+        &__repos-wrapper {
+            display: block;
         }
 
         &__issues {
