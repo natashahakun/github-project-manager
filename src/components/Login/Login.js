@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/user.actions';
-import { Button, Heading, LinkWrapper } from '../index';
+import { Button, Heading, Input, LinkWrapper } from '../index';
 import './Login.scss';
 
 class Login extends Component {
@@ -18,18 +18,20 @@ class Login extends Component {
         const { apiKey } = this.state;
 
         return (
-            // TODO: Componetize. Add Formik and Yup?
+            // TODO: Add Formik and Yup
             <div className="login">
                 <div className="login__body">
                     <Heading>Login</Heading>
                     <p className="login__text">Enter GitHub token to access your GitHub Project Manager</p>
 
-                    <form onSubmit={this.handleSubmit}>
-                        <label htmlFor="apiKey" className="login__label">GitHub Token</label>
-                        <input
+                    <form className="login__form" onSubmit={this.handleSubmit}>
+                        <Input
+                            id="apiKey"
+                            label="GitHub Token"
                             name="apiKey"
                             value={apiKey}
-                            onChange={event => {this.setState({ apiKey: event.target.value })}}
+                            type="text"
+                            handleOnChange={event => {this.setState({ apiKey: event.target.value })}}
                         />
 
                         <div className="login__action">
