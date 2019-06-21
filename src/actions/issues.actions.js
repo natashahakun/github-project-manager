@@ -1,5 +1,5 @@
 import { setError, setLoading } from './ui.actions';
-import { githubApiService } from '../services/githubApiService';
+import { githubApiService } from '../services';
 
 export const GET_ISSUES_REQUEST = 'GET_ISSUES_REQUEST';
 export const GET_ISSUES_SUCCESS = 'GET_ISSUES_SUCCESS';

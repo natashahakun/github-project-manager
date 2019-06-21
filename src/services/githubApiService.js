@@ -1,4 +1,4 @@
-export const githubApiService = async (path, apiKey) => {
+const githubApiService = async (path, apiKey) => {
     const url = `https://api.github.com/${path}`;
     const headers = new Headers();
     headers.append('Authorization', `token ${apiKey}`)
@@ -13,3 +13,5 @@ export const githubApiService = async (path, apiKey) => {
 
     return body;
 };
+
+export default githubApiService;

@@ -1,6 +1,6 @@
 import { getRepos } from './repos.actions';
 import { setError, setLoading } from './ui.actions';
-import { githubApiService } from '../services/githubApiService';
+import { apiKeyService, githubApiService } from '../services';
 
 export const GET_USER_REQUEST = 'GET_USER_REQUEST';
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
@@ -12,6 +12,7 @@ export const getUser = apiKey => async dispatch => {
 
     try {
         const body = await githubApiService('user', apiKey);
+        apiKeyService.set(apiKey);
 
         dispatch({
 			type: GET_USER_SUCCESS, 
