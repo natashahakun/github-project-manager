@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getIssues } from '../../actions/issues.actions';
-import { Button, Heading } from '../../components/index';
+import { Button, Heading, IssueTable } from '../../components/index';
 import './Dashboard.scss';
 
 const Dashboard = ({ getIssues, issues, repos }) =>
@@ -25,12 +25,8 @@ const Dashboard = ({ getIssues, issues, repos }) =>
             })}
         </div>
         {/* add reminder to click on repo && add 'no Issues' warning */}
-        <div>
-            {issues && issues.map(issue => {
-                return (
-                    <div key={issue.id}>{ issue.title }</div>
-                )
-            })}
+        <div className="dashboard__issues">
+            { issues.length > 0 && <IssueTable issues={issues} /> }
         </div>
     </section>
 
