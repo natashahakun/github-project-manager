@@ -1,0 +1,22 @@
+// Colors
+
+$white: #FFFFFF;
+$gray-light: #EEEEEE;
+$gray: #666666;
+$gray-dark: #202020;
+$blue: #156ED3;
+$blue-dark: #0252AC;
+$black: #000000;
+
+// Media Queries
+
+$width-min-mobile: 375;
+$width-min-tablet: 768;
+$width-min-desktop: 1024;
+$width-min-lg-desktop: 1440;
+
+$mq-min-mobile: '(min-width: #{$width-min-mobile}px)';
+$mq-min-tablet: '(min-width: #{$width-min-tablet}px)';
+$mq-min-desktop: '(min-width: #{$width-min-desktop}px)';
+$mq-min-lg-desktop: '(min-width: #{$width-min-lg-desktop}px)';
+
