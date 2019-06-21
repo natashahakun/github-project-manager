@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './Button.scss';
 
-const Button = ({ buttonType, children, type, ...props }) =>
+const Button = ({ buttonType, children, selected, type, ...props }) =>
     <button 
         className={classNames('button', {
             'button--primary': buttonType === 'primary',
-            'button--secondary': buttonType === 'secondary'
+            'button--secondary': buttonType === 'secondary',
+            'button--selected': selected
         })}
         type={type}
         {...props}
@@ -17,6 +18,7 @@ const Button = ({ buttonType, children, type, ...props }) =>
 
 Button.defaultProps = {
     buttonType: 'primary',
+    selected: false,
     type: 'button'
 };
 
@@ -28,6 +30,7 @@ Button.propTypes = {
         PropTypes.string
     ]).isRequired,
     onClick: PropTypes.func,
+    selected: PropTypes.bool,
     type: PropTypes.string
 };
 
