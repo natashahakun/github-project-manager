@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## GitHub Project Manager
+
+This project allows users to view and sort the GitHub issues associated with each of their GitHub respositories.
+
 ## Available Scripts
 
 In the project directory, you can run:
