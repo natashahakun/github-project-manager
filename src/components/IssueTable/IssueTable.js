@@ -14,27 +14,27 @@ class IssueTable extends Component {
         const { decreasePriority, increasePriority, issues } = this.props;
 
         return (
-            <table className="table">
-                <thead className="table__head">
-                    <tr className="table__row">
-                        <th className="table__data-standard table__data-assignee">Assignee</th>
-                        <th className="table__data-wide">Title</th>
-                        <th className="table__data-standard table__data-created">Created</th>
-                        <th className="table__data-standard table__data-updated">Last Updated</th>
-                        <th className="table__data-standard table__data-priority">Priority</th>
+            <table className='table'>
+                <thead className='table__head'>
+                    <tr className='table__row'>
+                        <th className='table__data-standard table__data-assignee'>Assignee</th>
+                        <th className='table__data-wide'>Title</th>
+                        <th className='table__data-standard table__data-created'>Created</th>
+                        <th className='table__data-standard table__data-updated'>Last Updated</th>
+                        <th className='table__data-standard table__data-priority'>Priority</th>
                     </tr>
                 </thead>
                 
                 <tbody>
                     { issues.sort(this.sortByPriority).map(issue =>
-                        <tr className="table__row" key={issue.id}>
-                            <td className="table__data-standard table__data-assignee">
-                                { issue.assignee ? <img className="table__image" src={ issue.assignee.avatar_url } alt="avatar" /> : 'None' }
+                        <tr className='table__row' key={issue.id}>
+                            <td className='table__data-standard table__data-assignee'>
+                                { issue.assignee ? <img className='table__image' src={ issue.assignee.avatar_url } alt='avatar' /> : 'None' }
                             </td>
-                            <td className="table__data-wide">{ issue.title }</td>
-                            <td className="table__data-standard table__data-created">{ moment(issue.created_at).format('MM/DD/YYYY') }</td>
-                            <td className="table__data-standard table__data-updated">{ moment(issue.updated_at).fromNow() }</td>
-                            <td className="table__data-standard table__data-priority">
+                            <td className='table__data-wide'>{ issue.title }</td>
+                            <td className='table__data-standard table__data-created'>{ moment(issue.created_at).format('MM/DD/YYYY') }</td>
+                            <td className='table__data-standard table__data-updated'>{ moment(issue.updated_at).fromNow() }</td>
+                            <td className='table__data-standard table__data-priority'>
                                 <Button buttonType='icon' disabled={issue.priority === 1} onClick={() => increasePriority(issue.id)}>+</Button>
                                 <Button buttonType='icon' disabled={issue.priority === issues.length} onClick={() => decreasePriority(issue.id)}>-</Button>
                             </td>

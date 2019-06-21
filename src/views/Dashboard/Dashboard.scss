@@ -1,8 +1,6 @@
 @import '../../styles/animations';
 @import '../../styles/variables';
 
-$slideLeftDuration: 0.6s;
-
 .dashboard {
     display: flex;
     flex-direction: column;
@@ -40,7 +38,7 @@ $slideLeftDuration: 0.6s;
     
         &--left {
             animation-name: slideLeft;
-            animation-duration: $slideLeftDuration;
+            animation-duration: $durationLong;
             animation-fill-mode: forwards;
             animation-timing-function: 'cubic-bezier(0.390, 0.575, 0.565, 1.000)';
 
@@ -49,8 +47,8 @@ $slideLeftDuration: 0.6s;
                 padding-left: 30px;
                 opacity: 0;
                 animation-name: fadeIn;
-                animation-duration: 0.4s;
-                animation-delay: $slideLeftDuration;
+                animation-duration: $durationAverage;
+                animation-delay: $durationLong;
                 animation-fill-mode: forwards;
             }
         }

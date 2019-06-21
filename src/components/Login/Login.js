@@ -19,28 +19,28 @@ class Login extends Component {
 
         return (
             // TODO: Add Formik and Yup
-            <div className="login">
-                <div className="login__body">
+            <div className='login'>
+                <div className='login__body'>
                     <Heading>Login</Heading>
-                    <p className="login__text">Enter GitHub token to access your GitHub Project Manager</p>
+                    <p className='login__text'>Enter GitHub token to access your GitHub Project Manager</p>
 
-                    <form className="login__form" onSubmit={this.handleSubmit}>
+                    <form className='login__form' onSubmit={this.handleSubmit}>
                         <Input
-                            id="apiKey"
-                            label="GitHub Token"
-                            name="apiKey"
+                            id='apiKey'
+                            label='GitHub Token'
+                            name='apiKey'
                             value={apiKey}
-                            type="text"
+                            type='text'
                             handleOnChange={event => {this.setState({ apiKey: event.target.value })}}
                         />
 
-                        <div className="login__action">
-                            <Button type="submit" buttonType="primary">Login</Button>
+                        <div className='login__action'>
+                            <Button type='submit' buttonType='primary'>Login</Button>
                         </div>
                     </form>
 
                     <LinkWrapper>
-                        <a href="https://help.github.com/en/enterprise/2.17/user/articles/creating-a-personal-access-token-for-the-command-line" target="_blank" rel="noopener noreferrer">Find out how to obtain a GitHub personal access token</a>
+                        <a href="https://help.github.com/en/enterprise/2.17/user/articles/creating-a-personal-access-token-for-the-command-line" target="_blank" rel='noopener noreferrer'>Find out how to obtain a GitHub personal access token</a>
                     </LinkWrapper>
                 </div>
             </div>

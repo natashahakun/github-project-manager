@@ -11,21 +11,21 @@ const Dashboard = ({ getIssues, issues, repos }) => {
     const [selectedRepo, setSelectedRepo] = useState(null);
 
     return (
-        <section className={classNames("dashboard",
+        <section className={classNames('dashboard',
             {
-                "dashboard--center": !selectedRepo,
-                "dashboard--left": selectedRepo
+                'dashboard--center': !selectedRepo,
+                'dashboard--left': selectedRepo
             }
         )}>
-            <div className="dashboard__repos">
+            <div className='dashboard__repos'>
                 <Heading>Repositories</Heading>
                 { repos.map((repo, index) => {
                     return (
-                        <div className="dashboard__repos-button" style={{ animationDuration: `${index * 0.25}s` }} key={ repo.id }>
+                        <div className='dashboard__repos-button' style={{ animationDuration: `${index * 0.25}s` }} key={ repo.id }>
                             <Button
-                                buttonType="secondary"
+                                buttonType='secondary'
                                 selected={selectedRepo === repo.id}
-                                type="button"
+                                type='button'
                                 onClick={() => {
                                     setSelectedRepo(repo.id);
                                     getIssues(repo.name);
@@ -37,11 +37,11 @@ const Dashboard = ({ getIssues, issues, repos }) => {
                     )
                 })}
             </div>
-            <div className="dashboard__issues">
-                { selectedRepo && issues.length === 0 && <h2 className="dashboard__issues-heading">No issues found</h2> }
+            <div className='dashboard__issues'>
+                { selectedRepo && issues.length === 0 && <h2 className='dashboard__issues-heading'>No issues found</h2> }
                 { issues.length > 0 &&
                     <>
-                        <h2 className="dashboard__issues-heading">Issues</h2>
+                        <h2 className='dashboard__issues-heading'>Issues</h2>
                         <IssueTable issues={issues} />
                     </>
                 }

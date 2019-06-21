@@ -23,6 +23,13 @@ $bold: 700;
 
 $overlay-z-index: 100;
 
+// Animation
+
+$durationQuick: 0.15s;
+$durationAverage: 0.3s;
+$durationLong: 0.6s;
+$durationLoadingIndicator: 1.2s;
+
 // Common
 
 $centered-column: calc(50% - 150px);

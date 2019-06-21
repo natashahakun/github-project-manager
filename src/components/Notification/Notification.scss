@@ -15,7 +15,7 @@
     color: $white;
     font-weight: $bold;
     animation-name: slideDown;
-    animation-duration: 0.4s;
+    animation-duration: $durationAverage;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }

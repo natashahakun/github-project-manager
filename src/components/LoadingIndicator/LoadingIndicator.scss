@@ -18,7 +18,10 @@
         border-right: 3px solid $blue;
         border-bottom: 3px solid $blue;
         border-radius: 50%;
-        animation: loadingRing 1.2s linear infinite;
+        animation-name: loadingRing;
+        animation-duration: $durationLoadingIndicator;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
     }
 
     &__overlay {

@@ -11,17 +11,17 @@ class Input extends Component {
         const { label, handleOnChange, id, name, value, type, ...inputProps } = this.props;
 
         return (
-            <div className="input-wrapper">
+            <div className='input-wrapper'>
                 <label
-                    className={classNames("input-wrapper__label", {
-                        "input-wrapper__label--top": this.setLabelTop()
+                    className={classNames('input-wrapper__label', {
+                        'input-wrapper__label--top': this.setLabelTop()
                     })}
                     htmlFor={id}
                 >
                     { label }
                 </label>
                 <input
-                    className="input-wrapper__input"
+                    className='input-wrapper__input'
                     id={id}
                     name={name || id}
                     onChange={handleOnChange}

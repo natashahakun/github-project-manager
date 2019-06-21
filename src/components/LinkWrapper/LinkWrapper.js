@@ -4,7 +4,7 @@ import './LinkWrapper.scss';
 
 const LinkWrapper = ({ children }) => 
     // takes in an anchor tag or a react-router Link as children
-    <div className="link-wrapper">
+    <div className='link-wrapper'>
         {children}
     </div>
 
