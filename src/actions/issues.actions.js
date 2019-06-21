@@ -5,6 +5,9 @@ export const GET_ISSUES_REQUEST = 'GET_ISSUES_REQUEST';
 export const GET_ISSUES_SUCCESS = 'GET_ISSUES_SUCCESS';
 export const GET_ISSUES_FAILURE = 'GET_ISSUES_FAILURE';
 
+export const INCREASE_PRIORITY = 'INCREASE_PRIORITY';
+export const DECREASE_PRIORITY = 'DECREASE_PRIORITY';
+
 export const getIssues = repoName => async (dispatch, getState) => {
     const { user } = getState();
 
@@ -28,3 +31,6 @@ export const getIssues = repoName => async (dispatch, getState) => {
         dispatch(setError(`There was an error retrieving your issues. ${error}`));
     }
 };
+
+export const increasePriority = issueId => dispatch => dispatch({ type: INCREASE_PRIORITY, payload: { issueId }});
+export const decreasePriority = issueId => dispatch => dispatch({ type: DECREASE_PRIORITY, payload: { issueId }});
