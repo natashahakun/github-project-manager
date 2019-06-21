@@ -1,4 +1,7 @@
+@import '../../styles/variables';
+
 .heading {
+    color: $black;
     font-size: 36px;
     font-weight: 300;
 }

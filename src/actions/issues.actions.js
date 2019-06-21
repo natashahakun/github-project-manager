@@ -25,6 +25,6 @@ export const getIssues = repoName => async (dispatch, getState) => {
 			type: GET_ISSUES_FAILURE
         });
         dispatch(setLoading(false));
-        dispatch(setError(`There was an error retrieving your issues: ${error}`));
+        dispatch(setError(`There was an error retrieving your issues. ${error}`));
     }
 };

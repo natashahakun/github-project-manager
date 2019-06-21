@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.notification {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    background-color: $red;
+    color: $white;
+    font-weight: 700;
+    animation-name: slideDown;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}

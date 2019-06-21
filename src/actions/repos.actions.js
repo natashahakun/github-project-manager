@@ -25,6 +25,6 @@ export const getRepos = () => async (dispatch, getState) => {
 			type: GET_REPOS_FAILURE
         });
         dispatch(setLoading(false));
-        dispatch(setError(`There was an error retrieving your repositories: ${error}`));
+        dispatch(setError(`There was an error retrieving your repositories. ${error}`));
     }
 };

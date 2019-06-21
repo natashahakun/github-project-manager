@@ -28,6 +28,6 @@ export const getUser = apiKey => async dispatch => {
 			type: GET_USER_FAILURE
         });
         dispatch(setLoading(false));
-        dispatch(setError(`There was an error retrieving your information: ${error}`));
+        dispatch(setError(`There was an error retrieving your information. ${error}`));
     }
 };
