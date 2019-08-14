@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project allows users to view and sort the GitHub issues associated with each of their GitHub respositories.
 
+## Install dependencies
+
+In the project directory, run:
+
+### `npm install`
+
 ## Available Scripts
 
 In the project directory, you can run:
